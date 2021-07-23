@@ -3,6 +3,7 @@ package chat
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -124,6 +125,7 @@ func (c *ChatClient) writePump() {
 			if !ok {
 				// The server closed the channel.
 				_ = c.conn.WriteMessage(websocket.CloseMessage, []byte{})
+				c.close()
 				return
 			}
 
@@ -180,6 +182,12 @@ func (c *ChatClient) passesRateLimit() bool {
 }
 
 func (c *ChatClient) sendPayload(payload events.EventPayload) {
+	defer func() {
+		if a := recover(); a != nil {
+			fmt.Println("RECOVER", a)
+		}
+	}()
+
 	var data []byte
 	data, err := json.Marshal(payload)
 	if err != nil {

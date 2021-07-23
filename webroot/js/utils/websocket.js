@@ -163,7 +163,7 @@ export default class Websocket {
         // console.log(e, e.data);
         return;
       }
-
+  
       if (!model.type) {
         console.error('No type provided', model);
         return;
