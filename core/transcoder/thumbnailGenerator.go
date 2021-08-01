@@ -105,10 +105,7 @@ func fireThumbnailGenerator(segmentPath string, variantIndex int) error {
 		}
 	}
 
-	// If YP support is enabled also create an animated GIF preview
-	if data.GetDirectoryEnabled() {
-		makeAnimatedGifPreview(mostRecentFile, previewGifFile)
-	}
+	makeAnimatedGifPreview(mostRecentFile, previewGifFile)
 
 	return nil
 }
