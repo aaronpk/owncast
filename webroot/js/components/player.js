@@ -3,6 +3,7 @@
 import videojs from '/js/web_modules/videojs/dist/video.min.js';
 import { getLocalStorage, setLocalStorage } from '../utils/helpers.js';
 import { PLAYER_VOLUME, URL_STREAM } from '../utils/constants.js';
+import '../web_modules/videojs-vr/dist/videojs-vr.min.js';
 
 const VIDEO_ID = 'video';
 
@@ -72,6 +73,7 @@ class OwncastPlayer {
     };
 
     this.vjsPlayer = videojs(VIDEO_ID, VIDEO_OPTIONS);
+    this.vjsPlayer.vr({projection: '360'});
 
     this.vjsPlayer.ready(this.handleReady);
   }

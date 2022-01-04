@@ -11,7 +11,8 @@
     "micromodal": "^0.4.10",
     "preact": "10.6.4",
     "tailwindcss": "^1.9.6",
-    "video.js": "7.17.0"
+    "video.js": "7.17.0",
+    "videojs-vr": "^1.8.0"
   },
   "devDependencies": {
     "cssnano": "^5.0.14",
@@ -28,7 +29,9 @@
       "preact",
       "mark.js/dist/mark.es6.min.js",
       "tailwindcss/dist/tailwind.min.css",
-      "micromodal/dist/micromodal.min.js"
+      "micromodal/dist/micromodal.min.js",
+      "videojs-vr/dist/videojs-vr.min.js",
+      "videojs-vr/dist/videojs-vr.css"
     ]
   },
   "scripts": {
